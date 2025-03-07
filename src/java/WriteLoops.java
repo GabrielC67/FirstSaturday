@@ -169,7 +169,7 @@ public class WriteLoops {
     // is less than “highestScore” and if it is, adds “currentScore” to
     // "runningScore"
     // and then sets “currentScore” to “gameNextScore()”
-    public int checkGameScore() {
+    public boolean checkGameScore() { //changed to boolean
         int w = 0;
         int highestScore = 236;
         int currentScore = gameNextScore();
@@ -178,13 +178,13 @@ public class WriteLoops {
         // do your while loop here
             while (runningScore < highestScore){
                 runningScore = runningScore + currentScore;
-                gameNextScore() = currentScore;
+                currentScore = gameNextScore();
                 w = w + 1;
             }
             // calling
             // each time through the inner loop
         
-        return w; // >= 3;
+        return (w >= 3); // >= 3;
     }
 
     // Rewrite the previous WHILE loop as a DO..WHILE loop.
@@ -196,12 +196,15 @@ public class WriteLoops {
         int runningScore = 0;
 
         // do your while loop here
-
+            do{
+                runningScore = runningScore + currentScore;
+                currentScore = gameNextScore();
+                w = w + 1;
+            }
+            while (runningScore < highestScore);
             // calling
-            w = w + 1;
-            // each time through the inner loop
 
-        return w >= 3;
+        return (w >= 3);
     }
 
     // Write a WHILE loop that checks “serverIsRunning()” and if true
@@ -211,10 +214,18 @@ public class WriteLoops {
     public int checkServerStatus() {
         int w = 0;
         String adminPhoneNumber = "+1 202 456 1111";
+        while (serverIsRunning()){
+            waitFor(5);
+            w = w + 1;
+
+        }
+        if(!serverIsRunning()){
+            sendEmergencyText("Help!", adminPhoneNumber);
+            tryServerRestart("Help",adminPhoneNumber);
+        }
         
 
         // calling
-        w = w + 1;
         // each time through the inner loop
         
         return w;
