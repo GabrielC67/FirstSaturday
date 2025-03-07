@@ -108,4 +108,11 @@ public class WriteIFsTest
         assertEquals(1, writeIFs1.tt_s);
     }
 
+    @Test
+    public void TestIfAlive(){
+        WriteIFs writeIFs = new WriteIFs();
+        Object oo = new Object();
+
+    }
+
 }
