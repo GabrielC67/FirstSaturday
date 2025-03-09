@@ -1,4 +1,5 @@
 
+import java.time.MonthDay;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -181,7 +182,8 @@ public class WriteLoops {
                 currentScore = gameNextScore();
                 w = w + 1;
             }
-            // calling
+
+        // calling
             // each time through the inner loop
         
         return (w >= 3); // >= 3;
@@ -235,13 +237,14 @@ public class WriteLoops {
     // Write a WHILE loop that checks “i” is less than 50,
     // and if it is, add 7 to “i”
     public int loop50by7() {
+        int i = 7;
         int w = 0;
-
-
+        while ( i < 50) {
+            i = i + 7;
             // calling
             w = w + 1;
             // each time through the inner loop
-        
+        }
         return w;
     }
 
@@ -273,12 +276,9 @@ public class WriteLoops {
     public int rewriteFooAsFor() {
         int w = 0;
         int sumOfThrees = 0;
-
- 
-            // calling
-            w = w + 1;
-            // each time through the inner loop
-        
+        for(int i = 0; i < threes_array.length; i++) {
+            sumOfThrees = sumOfThrees + threes_array[i];
+        }
         System.out.print("The Sum is ");
         System.out.println(sumOfThrees);
 
@@ -290,10 +290,17 @@ public class WriteLoops {
     public int rewriteFooAsWhile() {
         int w = 0;
         int sumOfThrees = 0;
-
- 
+        int i = 0;
+        while(i < threes_array.length) {
+            sumOfThrees = sumOfThrees + threes_array[i];
+            i++;
             // calling
             w = w + 1;
+            // each time through the inner loop
+        }
+ 
+            // calling
+
             // each time through the inner loop
         
         System.out.print("The Sum is ");
@@ -312,11 +319,17 @@ public class WriteLoops {
     public int manageYardAndJunior() {
         int w = 0;
         boolean onTime = true;
-
+        boolean yardNeedsMowed = true;
         // ADD YOUR CODE here.
- 
+            while (isSummer()){
+                if (yardNeedsMowed){
+                    yellAtJuniorToMowLawn();
+                }
+                w = w + 1;
+
+            }
             // be sure to call
-            w = w + 1;
+            sendJuniorBackToSchool("First day of school.");
             // each time inside the loop
         
         return w;
@@ -330,12 +343,12 @@ public class WriteLoops {
     public int tallyVote1() {
         int w = 0;
         int numberOfVotes = voteTallies.length;
-
- 
+        for(int i = 0; i < numberOfVotes; i = i +1) {
+            System.out.println(voteTallies[i]);
             // calling
             w = w + 1;
             // each time through the inner loop
-        
+        }
         return w;
     }
 
@@ -345,12 +358,15 @@ public class WriteLoops {
     public int tallyVote2() {
         int w = 0;
         int numberOfVotes = voteTallies.length;
-
-
+        int idx = 0;
+        while(idx < numberOfVotes) {
+            System.out.println(voteTallies[idx]);
             // calling
+            idx += 1;
             w = w + 1;
             // each time through the inner loop
-        
+        }
+        System.out.println(idx + "is the total length within the array.");
         return w;
     }
 
